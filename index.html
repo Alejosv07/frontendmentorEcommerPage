@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>ARMentor</title>
+</head>
+<body class="body">
+    <header class="header">
+        <nav class="nav">
+            <h1 class="brand">sneakers</h1>
+            <ul class="menu">
+                <li class="menu__item">Collections</li>
+                <li class="menu__item">Men</li>
+                <li class="menu__item">Women</li>
+                <li class="menu__item">About</li>
+                <li class="menu__item">Contact</li>
+            </ul>
+            <section class="cart-profile">
+                <figure class="cart">
+                    <img class="cart__img" src="images/icon-cart.svg" alt="cart" />
+                    <span class="cart__quantity">0</span>
+                </figure>
+                <figure class="profile">
+                    <img class="profile__img" src="images/image-avatar.png" alt="perfil" />
+                </figure>
+            </section>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="product">
+            <figure class="product__container">
+                <img class="product__container__img" src="images/image-product-1.jpg" alt="product 1" />
+            </figure>
+            <section class="product__carrusel">
+                <figure class="product__carrusel__container">
+                    <div class="efecct-mirror"></div>
+                    <img class="product__carrusel__container__img" src="images/image-product-1-thumbnail.jpg" normal-size="images/image-product-1.jpg" alt="product small 1" />
+                </figure>
+                <figure class="product__carrusel__container">
+                    <div class="efecct-mirror"></div>
+                    <img class="product__carrusel__container__img" src="images/image-product-2-thumbnail.jpg" normal-size="images/image-product-2.jpg" alt="product small 2" />
+                </figure>
+                <figure class="product__carrusel__container">
+                    <div class="efecct-mirror"></div>
+                    <img class="product__carrusel__container__img" src="images/image-product-3-thumbnail.jpg" normal-size="images/image-product-3.jpg" alt="product small 3" />
+                </figure>
+                <figure class="product__carrusel__container">
+                    <div class="efecct-mirror"></div>
+                    <img class="product__carrusel__container__img" src="images/image-product-4-thumbnail.jpg" normal-size="images/image-product-4.jpg" alt="product small 4" />
+                </figure>
+            </section>
+        </section>
+        <section class="details">
+            <p class="details__brand">Sneaker Company</p>
+            <h2 class="details__title">Fall Limited Edition Sneakers</h2>
+            <p class="details__description">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+                durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+            <section class="price">
+                <section class="price__container">
+                    <p class="price__container__real">$125.00</p>
+                    <del class="price__container__discount">$250.00</del>
+                </section>
+                <p class="price__discount">50%</p>
+            </section>
+            <section class="options">
+                <section class="quantity">
+                    <button class="quantity__minus">
+                        -
+                    </button>
+                    <p class="quantity__number">0</p>
+                    <button class="quantity__plus">
+                        +
+                    </button>
+                </section>
+                <button class="addCart">
+                    <img class="addCart__img" src="images/icon-cart-white.svg" alt="button add item">
+                    Add to cart
+                </button>
+            </section>
+        </section>
+
+    </main>
+    
+    <section class="cartPanel">
+        <h3 class="cartPanel__title">Cart</h3>
+        <div class="cartPanel__body">
+            
+            <div class="cartPanel__item">
+                <figure class="cartPanel__item__img">
+                    <img src="images/image-product-1-thumbnail.jpg" alt="img_thumbnail">
+                </figure>
+                <div class="cartPanel__item__body">
+                    <p class="cartPanel__item__body__title">Fall Limited Edition Sneakers</p>
+                    <div class="cartPanel__item__body__details">
+                        <p class="cartPanel__item__body__details__price">$125.00</p>
+                        <p class="cartPanel__item__body__details__quantity">x3</p>
+                        <p class="cartPanel__item__body__details__total">$375.00</p>
+                    </div>
+                </div>
+                <div class="cartPanel__item__op">
+                    <figure class="cartPanel__item__op_container">
+                        <img class="cartPanel__item__op__img" src="images/icon-delete.svg" alt="remove item" srcset="">
+                    </figure>
+                </div>
+            </div>
+
+        </div>
+        <div class="cartPanel__footer">
+            <button class="cartPanel__footer__cta">Checkout</button>
+        </div>
+    </section>
+
+    <section class="modal">
+        <div class="modal__body">
+            <section class="modal__product">
+                <div class="modal__product__controls">
+                    <span class="modal__product__controls__spin left-row"><</span>
+                    <figure class="modal__product__container">
+                        <span class="modal__close">X</span>
+                        <img class="modal__product__container__img" src="images/image-product-1.jpg" alt="product 1" />
+                    </figure>
+                    <span class="modal__product__controls__spin right-row">></span>
+                </div>
+                <section class="modal__product__carrusel">
+                    <figure class="modal__product__carrusel__container">
+                        <div class="modal__efecct-mirror"></div>
+                        <img class="modal__product__carrusel__container__img" src="images/image-product-1-thumbnail.jpg" normal-size="images/image-product-1.jpg" alt="product small 1" />
+                    </figure>
+                    <figure class="modal__product__carrusel__container">
+                        <div class="modal__efecct-mirror"></div>
+                        <img class="modal__product__carrusel__container__img" src="images/image-product-2-thumbnail.jpg" normal-size="images/image-product-2.jpg" alt="product small 2" />
+                    </figure>
+                    <figure class="modal__product__carrusel__container">
+                        <div class="modal__efecct-mirror"></div>
+                        <img class="modal__product__carrusel__container__img" src="images/image-product-3-thumbnail.jpg" normal-size="images/image-product-3.jpg" alt="product small 3" />
+                    </figure>
+                    <figure class="modal__product__carrusel__container">
+                        <div class="modal__efecct-mirror"></div>
+                        <img class="modal__product__carrusel__container__img" src="images/image-product-4-thumbnail.jpg" normal-size="images/image-product-4.jpg" alt="product small 4" />
+                    </figure>
+                </section>
+            </section>
+        </div>
+    </section>
+</body>
+<script src="js/index.js"></script>
+</html>
