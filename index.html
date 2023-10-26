@@ -15,6 +15,25 @@
     <header class="header">
         <nav class="nav">
             <h1 class="brand">sneakers</h1>
+            <figure class="menuMobile">
+                <img class="menuMobile__image" src="images/icon-menu.svg" alt="menu">
+            </figure>
+            <!--- menu mobile
+            -->
+            <div class="menuMobile__container">
+                <ul class="menu">
+                    <li class="menu__item--close">
+                        <figure class="menuMobile--close">
+                            <img class="menuMobile--close__image" src="images/icon-close.svg" alt="close-menu">
+                        </figure>
+                    </li>
+                    <li class="menu__item">Collections</li>
+                    <li class="menu__item">Men</li>
+                    <li class="menu__item">Women</li>
+                    <li class="menu__item">About</li>
+                    <li class="menu__item">Contact</li>
+                </ul>
+            </div>
             <ul class="menu">
                 <li class="menu__item">Collections</li>
                 <li class="menu__item">Men</li>
@@ -35,9 +54,13 @@
     </header>
     <main class="main">
         <section class="product">
-            <figure class="product__container">
-                <img class="product__container__img" src="images/image-product-1.jpg" alt="product 1" />
-            </figure>
+            <div class="product__controls">
+                <span class="product__controls__spin left-row"><</span>
+                <figure class="product__container">
+                    <img class="product__container__img" src="images/image-product-1.jpg" alt="product 1" />
+                </figure>
+                <span class="product__controls__spin right-row">></span>
+            </div>
             <section class="product__carrusel">
                 <figure class="product__carrusel__container">
                     <div class="efecct-mirror"></div>

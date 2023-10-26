@@ -7,8 +7,18 @@ const obProduct = {
 };
 let id = 0;
 let List = [];
+let laptop = window.innerWidth>768;
 
-((d) => {
+((d,w) => {
+    //Rezise
+    w.addEventListener("resize",(event)=>{
+        //Modify screen
+        laptop = window.innerWidth>768;
+        console.log(w.innerWidth);
+    },true);    
+
+
+    //Start click event
     d.addEventListener("click", (event)=>{
         //Plus quantity
         if (event.target.matches(".quantity__minus") || event.target.matches(".quantity__plus")) {
@@ -110,7 +120,7 @@ let List = [];
             }
         }
         else//image popup
-        if(event.target.matches(".product__container__img")){
+        if(event.target.matches(".product__container__img") && laptop){
             let modal = d.querySelector(".modal");
             modal.classList.add("modal-animation-on");
             if (modal.classList.contains("modal-animation-off")) {
@@ -118,7 +128,7 @@ let List = [];
             }
         }
         else//image popup
-        if(event.target.matches(".modal__close")){
+        if(event.target.matches(".modal__close") && laptop){
             let modal = d.querySelector(".modal");
             modal.classList.add("modal-animation-off");
             if (modal.classList.contains("modal-animation-on")) {
@@ -126,7 +136,7 @@ let List = [];
             }
         }
         else//Controls details gallery
-        if(event.target.matches(".modal__product__controls__spin")){
+        if(event.target.matches(".modal__product__controls__spin") && laptop){
             let index = 0;
             let product__container__img = d.querySelector(".modal__product__container__img");
             let imagePath = "";
@@ -147,7 +157,50 @@ let List = [];
                 index++;
             });
         }
-        
+        else//Controls details gallery mobile main
+        if(event.target.matches(".product__controls__spin") && !laptop){
+            let index = 0;
+            let product__container__img = d.querySelector(".product__container__img");
+            let imagePath = "";
+            let pass = false;
+            d.querySelectorAll(".product__carrusel__container__img").forEach((x)=>{
+                console.log("entre");
+                if(x.getAttribute("normal-size") == product__container__img.getAttribute("src") && pass == false){
+                    console.log("entre al if");
+
+                    if(event.target.matches(".right-row")){
+                        index++;
+                    }else{
+                        index--;
+                    }
+                    if(d.querySelectorAll(".product__carrusel__container__img").item(index) != null){
+                        pass = true;
+                        imagePath = d.querySelectorAll(".product__carrusel__container__img").item(index).getAttribute("normal-size");
+                        product__container__img.setAttribute("src",imagePath);
+                    }
+                }
+                index++;
+            });
+        }
+        else
+        if(event.target.matches(".menuMobile") || event.target.matches(".menuMobile__image")){
+            const menuMobile__container = d.querySelector(".menuMobile__container");
+            const menu = d.querySelector(".menuMobile__container>.menu");
+            if(menuMobile__container != null){
+                menu.style.animationName = "animationMenuOn";
+                menuMobile__container.style.animationName = "animationModalOn";
+            }
+        }
+        if(event.target.matches(".menu__item--close") || event.target.matches(".menuMobile--close")
+        || event.target.matches(".menuMobile--close__image")){
+            const menuMobile__container = d.querySelector(".menuMobile__container");
+            const menu = d.querySelector(".menuMobile__container>.menu");
+            if(menuMobile__container != null){
+                menu.style.animationName = "animationMenuOff";
+                menuMobile__container.style.animationName = "animationModalOff";
+            }
+        }
         console.log(event.target);
     });
-})(document);
+    //End click event
+})(document,window);
