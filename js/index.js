@@ -9,6 +9,15 @@ let id = 0;
 let List = [];
 let laptop = window.innerWidth>768;
 
+
+const paintNumberBasket = (d)=>{
+    if(List.length>0){
+        d.querySelector(".cart__quantity").style.opacity = 1;
+        d.querySelector(".cart__quantity").textContent = List.length;
+    }else{
+        d.querySelector(".cart__quantity").style.opacity = 0;
+    }
+}
 ((d,w) => {
     //Rezise
     w.addEventListener("resize",(event)=>{
@@ -77,8 +86,7 @@ let laptop = window.innerWidth>768;
                 let cartPanel__body = d.querySelector(".cartPanel__body");
                 cartPanel__body.innerHTML = "";
                 cartPanel__body.appendChild(fragment);
-
-                d.querySelector(".cart__quantity").textContent = List.length;
+                paintNumberBasket(d);
             }
 
         }
@@ -91,7 +99,7 @@ let laptop = window.innerWidth>768;
             let cartPanel__body = d.querySelector(".cartPanel__body");
             let cartPanel__item = cartPanel__body.querySelector(`[value="${event.target.getAttribute("value")}"]`);
             cartPanel__body.removeChild(cartPanel__item);
-            d.querySelector(".cart__quantity").textContent = List.length;
+            paintNumberBasket(d);
         }
         else//Effect gray main gallery
         if(event.target.matches(".efecct-mirror")){

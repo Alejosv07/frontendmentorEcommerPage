@@ -15,7 +15,6 @@
 *{
     box-sizing: border-box;
     font-family: 'Kumbh Sans', sans-serif;
-    
 }
 
 .body{
@@ -604,7 +603,13 @@ figure{
     .header,.main{
         margin: 0 1em;
     }
-
+    .cartPanel{
+        top: 4.6em;
+        height: 250px;
+    }
+    .cartPanel__body{
+        height: 112px;
+    }
     .header{
         padding: 1em 0;
     }
@@ -716,9 +721,27 @@ figure{
 
     .main{
         padding: 0;
+        padding-bottom: 2em;
         margin: 0;
     }
 
+    .cartPanel{
+        z-index: 998;
+        width: 310px;
+        right: 0.3em;
+    }
+
+    .cartPanel__item{
+        justify-content: space-between;
+        gap: 0;
+    }
+    .cartPanel__item__img{
+        width: 46px;
+        height: auto;
+    }
+    .cartPanel__item__body {
+        font-size: 0.7em;
+    }
     .details{
         padding: 0 2em;
         width: 100%;
@@ -777,11 +800,27 @@ figure{
     }
 }
 
+@media (max-width: 425px){
+    .cartPanel {
+        right: 3.3em;
+    }
+}
+
+@media (max-width: 375px){
+    .cartPanel {
+        z-index: 998;
+        width: 310px;
+        right: 2.2em;
+    }
+}
 @media (max-width: 320px){
-.addCart {
-    padding: 1em 1em;
-}
-.addCart__img {
-    display: none;
-}
-}
+    .addCart {
+        padding: 1em 1em;
+    }
+    .addCart__img {
+        display: none;
+    }
+    .cartPanel {
+        right: 0.3em;
+    }
+    }
