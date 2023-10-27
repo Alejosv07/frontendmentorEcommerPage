@@ -16,14 +16,50 @@ const paintNumberBasket = (d)=>{
         d.querySelector(".cart__quantity").textContent = List.length;
     }else{
         d.querySelector(".cart__quantity").style.opacity = 0;
+        d.querySelector(".cartPanel__body").innerHTML = "<p>Your cart is empty</p>";
     }
 }
+
+//Switch modal image
+const cartPanelShowOnOFF = (d)=>{
+    let cartPanel = d.querySelector(".cartPanel");
+    if (cartPanel.classList.contains("modal-animation-on")) {
+        cartPanel.classList.add("modal-animation-off");
+        cartPanel.classList.remove("modal-animation-on");
+    }else{
+        cartPanel.classList.add("modal-animation-on");
+        if (cartPanel.classList.contains("modal-animation-off")) {
+            cartPanel.classList.remove("modal-animation-off");
+        }
+    }
+}
+
+const modalProductoShow = (d)=>{
+    d.querySelector(".modal__product__container__img").setAttribute("src",d.querySelector(".product__container__img").getAttribute("src"));
+    let modal = d.querySelector(".modal");
+    modal.classList.add("modal-animation-on");
+    if (modal.classList.contains("modal-animation-off")) {
+        modal.classList.remove("modal-animation-off");
+    }
+}
+
+const modalProductoOff = (d)=>{
+    let modal = d.querySelector(".modal");
+    modal.classList.add("modal-animation-off");
+    if (modal.classList.contains("modal-animation-on")) {
+        modal.classList.remove("modal-animation-on");
+    }
+}
+
+
 ((d,w) => {
+
+    paintNumberBasket(d);
+
     //Rezise
     w.addEventListener("resize",(event)=>{
         //Modify screen
         laptop = window.innerWidth>768;
-        console.log(w.innerWidth);
     },true);    
 
 
@@ -116,27 +152,15 @@ const paintNumberBasket = (d)=>{
         else//cart popup
         if(event.target.matches(".cart__img")||event.target.matches(".cart__quantity")
         || event.target.matches(".cart")){
-            let cartPanel = d.querySelector(".cartPanel");
-            if (cartPanel.classList.contains("modal-animation-on")) {
-                cartPanel.classList.add("modal-animation-off");
-                cartPanel.classList.remove("modal-animation-on");
-            }else{
-                cartPanel.classList.add("modal-animation-on");
-                if (cartPanel.classList.contains("modal-animation-off")) {
-                    cartPanel.classList.remove("modal-animation-off");
-                }
-            }
+            cartPanelShowOnOFF(d);
         }
         else//image popup
         if(event.target.matches(".product__container__img") && laptop){
-            let modal = d.querySelector(".modal");
-            modal.classList.add("modal-animation-on");
-            if (modal.classList.contains("modal-animation-off")) {
-                modal.classList.remove("modal-animation-off");
-            }
+            modalProductoShow(d);
         }
         else//image popup
         if(event.target.matches(".modal__close") && laptop){
+            modalProductoOff(d);
             let modal = d.querySelector(".modal");
             modal.classList.add("modal-animation-off");
             if (modal.classList.contains("modal-animation-on")) {
@@ -190,22 +214,26 @@ const paintNumberBasket = (d)=>{
                 index++;
             });
         }
-        else
+        else//Show mobile menu
         if(event.target.matches(".menuMobile") || event.target.matches(".menuMobile__image")){
             const menuMobile__container = d.querySelector(".menuMobile__container");
             const menu = d.querySelector(".menuMobile__container>.menu");
             if(menuMobile__container != null){
-                menu.style.animationName = "animationMenuOn";
                 menuMobile__container.style.animationName = "animationModalOn";
+                menu.style.animationDelay= "0.6s";
+                menu.style.animationDuration= "0.8s";
+                menu.style.animationName = "animationMenuOn";
             }
-        }
+        }else//Hide mobile menu
         if(event.target.matches(".menu__item--close") || event.target.matches(".menuMobile--close")
-        || event.target.matches(".menuMobile--close__image")){
+        || event.target.matches(".menuMobile--close__image") || event.target.matches(".menuMobile__container")){
             const menuMobile__container = d.querySelector(".menuMobile__container");
             const menu = d.querySelector(".menuMobile__container>.menu");
             if(menuMobile__container != null){
-                menu.style.animationName = "animationMenuOff";
+                menuMobile__container.style.animationDelay= "0.6s";
                 menuMobile__container.style.animationName = "animationModalOff";
+                menu.style.animationDelay= "0s";
+                menu.style.animationName = "animationMenuOff";
             }
         }
         console.log(event.target);

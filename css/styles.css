@@ -74,8 +74,8 @@ figure{
 
 .menu__item:hover{
     z-index: 999;
-    border-bottom: 1px solid var(--Orange);
-    margin-bottom: -1px;
+    border-bottom: 4px solid var(--Orange);
+    margin-bottom: -4px;
 }
 .cart{
     cursor: pointer;
@@ -91,6 +91,7 @@ figure{
     border-radius: 0.5em;
     color: white;
     background-color: var(--Orange);
+    opacity: 0;
 }
 .cart-profile{
     margin-left: auto;
@@ -122,11 +123,16 @@ figure{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    justify-content: center;
+    align-items: center;
     height: 205px;
     overflow-y: auto;
     border-top: 1px solid var(--Grayish-blue);
 }
-
+.cartPanel__body>p{
+    font-weight: bold;
+    color: var(--Dark-grayish-blue);
+}
 .cartPanel__footer{
     display: flex;
     flex-direction: column;
@@ -253,6 +259,7 @@ figure{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 999;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -332,12 +339,11 @@ figure{
 }
 
 
-.right-row{
-    right: .6em;
+.left-row {
+    left: 2.6em;
 }
-
-.left-row{
-    left: 0.6em;
+.right-row {
+    right: 2.6em;
 }
 
 .modal__product__controls__spin:hover{
@@ -555,10 +561,15 @@ figure{
 .quantity__plus:hover{
     color: var(--Orange-op);
 }
+
 .addCart__img{
     color: white;
 }
 
+.dontShow{
+    opacity: 0;
+    pointer-events: none;
+}
 
 @keyframes animationModalOn {
     from{
@@ -569,6 +580,8 @@ figure{
         pointer-events: auto;
     }
 }
+
+
 
 @keyframes animationModalOff {
     from{
@@ -595,6 +608,44 @@ figure{
     }
     to{
         transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .header, .main {
+        margin: 0px 0em;
+        padding: 0 2em;
+    }
+
+    .main{
+        padding: 4em 2em;
+        gap: 6em;
+    }
+
+    .product__carrusel {
+        justify-content: space-between;
+    }
+
+    .product__carrusel__container {
+        width: 20.4%;
+    }
+
+    .details__title {
+        font-size: 2.4em;
+    }
+    .nav{
+        gap: 2em;
+    }
+    
+    .menu {
+        gap: 1em;
+    }
+    .product{
+        flex: 1;
+    }
+    .product__container {
+        max-width: 100%;
     }
 }
 
@@ -633,9 +684,10 @@ figure{
         width: 100%;
         z-index: 999;
         animation-name: animationModalOff;
+        animation-delay: 0.6s;
         animation-duration: 0.5s;
-        animation-fill-mode: forwards;
-        animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+        animation-fill-mode: both;
+        animation-timing-function: ease;
     }
     
     .menu{
@@ -654,10 +706,9 @@ figure{
         padding-top: 1em;
         border: 0;
         margin: 0;
-        animation-name: animationMenuOn;
+        animation-name: animationMenuOff;
         animation-duration: 0.6s;
-        animation-fill-mode: backwards;
-        animation-delay: 0.5s;
+        animation-fill-mode: both;
         animation-timing-function: ease;
     }
     
@@ -702,6 +753,13 @@ figure{
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .left-row {
+        left: 0.6em;
+    }
+    .right-row {
+        right: 0.6em;
     }
 }
 
@@ -798,11 +856,23 @@ figure{
     .product__controls__spin{
         display: block;
     }
+    .left-row {
+        left: 0.6em;
+    }
+    .right-row {
+        right: 0.6em;
+    }
 }
 
 @media (max-width: 425px){
     .cartPanel {
         right: 3.3em;
+    }
+    .left-row {
+        left: 0.6em;
+    }
+    .right-row {
+        right: 0.6em;
     }
 }
 
@@ -811,6 +881,12 @@ figure{
         z-index: 998;
         width: 310px;
         right: 2.2em;
+    }
+    .left-row {
+        left: 0.6em;
+    }
+    .right-row {
+        right: 0.6em;
     }
 }
 @media (max-width: 320px){
@@ -822,5 +898,11 @@ figure{
     }
     .cartPanel {
         right: 0.3em;
+    }
+    .left-row {
+        left: 0.6em;
+    }
+    .right-row {
+        right: 0.6em;
     }
     }
