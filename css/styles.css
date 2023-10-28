@@ -121,7 +121,8 @@ figure{
 
 .cartPanel__body{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 1em;
     justify-content: center;
     align-items: center;
@@ -339,11 +340,12 @@ figure{
 }
 
 
-.left-row {
-    left: 2.6em;
-}
 .right-row {
-    right: 2.6em;
+    right: 1.6em
+}
+
+.left-row {
+    left: 1.6em
 }
 
 .modal__product__controls__spin:hover{
@@ -459,7 +461,7 @@ figure{
 
 .details__title{
     margin: 0;
-    font-size: 4em;
+    font-size: 3em;
 }
 
 .details__description,
@@ -608,6 +610,18 @@ figure{
     }
     to{
         transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 1440px) {
+    .product__container{
+        max-width: 100%;
+    }
+    .main {
+        gap: 4em;
+    }
+    .product__carrusel__container {
+        width: 23.4%;
     }
 }
 
